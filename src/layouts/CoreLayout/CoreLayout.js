@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 import '../../styles/core.scss'
 
 // Note: Stateless/function components *will not* hot reload!
@@ -10,18 +11,32 @@ import '../../styles/core.scss'
 //
 // CoreLayout is a pure function of its props, so we can
 // define it with a plain javascript function...
-function CoreLayout ({ children }) {
-  return (
-    <div className='page-container'>
-      <div className='view-container'>
-        {children}
-      </div>
-    </div>
-  )
+
+const NavbarStatic = () => {
+    return (
+        <nav className="navbar navbar-default">
+            <div className="container">
+                <div className="navbar-header">
+                    <Link to='/' className="navbar-brand">Note Manager</Link>
+                </div>
+            </div>
+        </nav>
+    )
+}
+
+function CoreLayout({ children }) {
+    return (
+        <div>
+            <NavbarStatic />
+            <div className='container'>
+                {children}
+            </div>
+        </div>
+    )
 }
 
 CoreLayout.propTypes = {
-  children: PropTypes.element
+    children: PropTypes.element
 }
 
 export default CoreLayout
