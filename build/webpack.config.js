@@ -155,7 +155,7 @@ webpackConfig.module.loaders.push({
 // Don't treat global SCSS as modules
 webpackConfig.module.loaders.push({
   test: /\.scss$/,
-  exclude: /src/,
+  exclude: [/src/, '_bootstrap.scss'],
   loaders: [
     'style',
     'css?sourceMap',
