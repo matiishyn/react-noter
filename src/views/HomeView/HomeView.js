@@ -44,8 +44,7 @@ export class HomeView extends React.Component {
             <div className={classes.homeView}>
                 <div className={classes.leftHandMenu}>
                     <h4>Counter: {this.props.directories.counter}</h4>
-                    <h4>Dirs: {this.props.directories.directories.map(i=>i.name+'; ')}</h4>
-
+                    <LeftHandMenu/>
                 </div>
                 <div className={classes.directories}>
                     <button onClick={()=>{this.props.fetchDirectories()}}>Fetch</button>
