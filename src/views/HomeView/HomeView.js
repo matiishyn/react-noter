@@ -6,6 +6,7 @@ import classes from './HomeView.scss'
 
 // importing components
 import LeftHandMenu from 'components/leftHandMenu/LeftHandMenu';
+import Directories from 'components/directories/Directories';
 
 // We define mapStateToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
@@ -13,18 +14,8 @@ import LeftHandMenu from 'components/leftHandMenu/LeftHandMenu';
 // the component can be tested w/ and w/o being connected.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-    directories: state.directories,
-    counter: state.counter
+    directories: state.directories
 })
-
-
-const Directories = () => {
-    return (
-        <div>
-            DIRS
-        </div>
-    );
-};
 
 const NotesExplorer = () => {
     return (
@@ -36,20 +27,17 @@ const NotesExplorer = () => {
 
 
 export class HomeView extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchDirectories()
     }
     render() {
         return (
             <div className={classes.homeView}>
                 <div className={classes.leftHandMenu}>
-                    <h4>Counter: {this.props.directories.counter}</h4>
                     <LeftHandMenu/>
                 </div>
                 <div className={classes.directories}>
-                    <button onClick={()=>{this.props.fetchDirectories()}}>Fetch</button>
-                    <button onClick={()=>{this.props.increment(1)}}>Inc</button>
-
+                    <Directories/>
                 </div>
                 <div className={classes.noteExplorer}>
                     <NotesExplorer/>
