@@ -4,6 +4,7 @@ import { routeReducer } from 'react-router-redux'
 import { combineReducers } from 'redux'
 
 // Updates an entity cache in response to any action with response.entities.
+// todo remove
 function entities(state = {users: {}, repos: {}}, action) {
     if (action.response && action.response.entities) {
         return merge({}, state, action.response.entities)
@@ -13,7 +14,7 @@ function entities(state = {users: {}, repos: {}}, action) {
 }
 
 
-function directories(state = {directories:{}}, action) {
+function directories(state = [], action) {
     if (action.response && action.type === ActionTypes.DIRECTORIES_SUCCESS) {
         //return Object.assign({}, state.directories, action.response)
         return action.response;
@@ -21,6 +22,15 @@ function directories(state = {directories:{}}, action) {
 
     return state
 }
+
+function notices(state = [], action) {
+    if (action.response && action.type === ActionTypes.NOTICES_SUCCESS) {
+        return action.response;
+    }
+
+    return state
+}
+
 
 // Updates error message to notify about the failed fetches.
 function errorMessage(state = null, action) {
@@ -37,7 +47,7 @@ function errorMessage(state = null, action) {
 
 const rootReducer = combineReducers({
     directories,
-    //entities,
+    notices,
     errorMessage,
     routing: routeReducer
 })

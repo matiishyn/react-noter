@@ -1,19 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { loadDirectories } from '../actions'
+import { loadDirectories, loadNotices } from '../actions'
 
 // components
 import Menu from '../components/Menu'
 import FolderTree from '../components/FolderTree'
-
+import Notices from '../components/Notices'
 
 
 function loadData(props) {
     props.loadDirectories();
+    props.loadNotices();
 }
-
-
 
 
 class NoteManagerPage extends Component {
@@ -27,8 +26,6 @@ class NoteManagerPage extends Component {
 
 
     render() {
-        const { directories } = this.props
-        console.log(directories);
         return (
             <div style={{ backgroundColor: 'beige', padding: 10}}>
                 <h2>Note Manager</h2>
@@ -37,8 +34,12 @@ class NoteManagerPage extends Component {
                     <Menu/>
                 </div>
 
-                <div style={{ backgroundColor: 'darkseagreen', padding: 10, width: 200 }}>
-                    <FolderTree/>
+                <div style={{ backgroundColor: 'darkseagreen', padding: 10, width: 200, float: 'left'}}>
+                    <FolderTree directories={this.props.directories}/>
+                </div>
+
+                <div style={{ backgroundColor: 'burlywood', padding: 10, paddingLeft: 250 }}>
+                    <Notices notices={this.props.notices}/>
                 </div>
             </div>
         )
@@ -46,16 +47,19 @@ class NoteManagerPage extends Component {
 }
 
 NoteManagerPage.propTypes = {
-    loadDirectories: PropTypes.func.isRequired
+    loadDirectories: PropTypes.func.isRequired,
+    loadNotices: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, props) {
-    let {directories} = state
+    let {directories, notices} = state
     return {
-        directories
+        directories,
+        notices
     }
 }
 
 export default connect(mapStateToProps, {
-    loadDirectories
+    loadDirectories,
+    loadNotices
 })(NoteManagerPage)

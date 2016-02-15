@@ -15,7 +15,6 @@ function callApi(endpoint) {
             if (!response.ok) {
                 return Promise.reject(json)
             }
-
             return json;
         })
 }
