@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 
 export default class FolderTree extends Component {
     constructor(props) {
@@ -6,7 +7,16 @@ export default class FolderTree extends Component {
     }
 
     renderFolder(directory) {
-        return (<li key={directory.id}>{directory.name}</li>)
+        return (
+            <li key={directory.id}>
+                <Link
+                    activeClassName="active-directory"
+                    to={`/directory/${directory.id}`}
+                >
+                    {directory.name}
+                </Link>
+            </li>
+        )
     }
 
     renderFolderStructure(directories) {

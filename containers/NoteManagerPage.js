@@ -39,7 +39,7 @@ class NoteManagerPage extends Component {
                 </div>
 
                 <div style={{ backgroundColor: 'burlywood', padding: 10, paddingLeft: 250 }}>
-                    <Notices notices={this.props.notices}/>
+                    <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
                 </div>
             </div>
         )
@@ -47,15 +47,18 @@ class NoteManagerPage extends Component {
 }
 
 NoteManagerPage.propTypes = {
+    directoryId: PropTypes.string.isRequired,
     loadDirectories: PropTypes.func.isRequired,
     loadNotices: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, props) {
-    let {directories, notices} = state
+    let { directoryId} = props.params; // URL params
+    let { directories, notices } = state;
     return {
         directories,
-        notices
+        notices,
+        directoryId
     }
 }
 

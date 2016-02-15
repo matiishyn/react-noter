@@ -18,16 +18,18 @@ export default class Notices extends Component {
     }
 
     render() {
-        let {notices} = this.props
+        let {notices, directoryId} = this.props
+        let filteredNotices = notices.filter(n => +n.directoryId === +directoryId);
 
         return (
             <nav>
-                {this.renderNotices(notices)}
+                {this.renderNotices(filteredNotices)}
             </nav>
         )
     }
 }
 
 Notices.propTypes = {
-    notices: PropTypes.array
+    notices: PropTypes.array,
+    directoryId: PropTypes.string.isRequired
 }
