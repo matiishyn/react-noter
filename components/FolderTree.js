@@ -10,7 +10,7 @@ export default class FolderTree extends Component {
     }
 
     renderFolderStructure(directories) {
-        return !directories.length || directories.map(this.renderFolder)
+        return directories.map(this.renderFolder)
 
     }
 

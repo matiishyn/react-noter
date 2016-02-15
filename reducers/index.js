@@ -16,7 +16,6 @@ function entities(state = {users: {}, repos: {}}, action) {
 
 function directories(state = [], action) {
     if (action.response && action.type === ActionTypes.DIRECTORIES_SUCCESS) {
-        //return Object.assign({}, state.directories, action.response)
         return action.response;
     }
 

@@ -8,34 +8,13 @@ export default class Notices extends Component {
     renderNotice(notice) {
         return (
             <div key={notice.id} style={{border: "1px solid black"}}>
-                <h3>{notice.title}</h3>
-                <p>{notice.description}</p>
+                <strong>{notice.title}</strong>
             </div>
         )
     }
 
     renderNotices(notices) {
-        return !notices.length || notices.map(this.renderNotice);
-        /*
-         description
-         :
-         "Some description"
-         directoryId
-         :
-         "3"
-         id
-         :
-         7
-         position
-         :
-         0
-         tags
-         :
-         "tag1,tag2"
-         title
-         :
-         "Note for Child Dir 12"
-         */
+        return notices.map(this.renderNotice);
     }
 
     render() {
