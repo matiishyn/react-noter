@@ -59,6 +59,5 @@ export default class Explore extends Component {
 }
 
 Explore.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  value: PropTypes.string.isRequired
 }

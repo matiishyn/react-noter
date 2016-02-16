@@ -8,17 +8,12 @@ import { resetErrorMessage } from '../actions'
 class App extends Component {
     constructor(props) {
         super(props)
-        this.handleChange = this.handleChange.bind(this)
-        this.handleDismissClick = this.handleDismissClick.bind(this)
-    }
 
-    handleDismissClick(e) {
-        this.props.resetErrorMessage()
-        e.preventDefault()
-    }
-
-    handleChange(nextValue) {
-        this.props.push(`/${nextValue}`)
+        // if no directoryId
+        // todo fix it
+        /*if(!props.directoryId) {
+            props.push('/directory/1');
+        }*/
     }
 
     renderErrorMessage() {
@@ -44,8 +39,7 @@ class App extends Component {
         return (
             <div>
 
-                <Explore value={inputValue}
-                         onChange={this.handleChange}/>
+                <Explore value={inputValue}/>
                 <hr />
                 {this.renderErrorMessage()}
                 {children}

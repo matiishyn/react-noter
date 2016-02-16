@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
 import { loadDirectories, loadNotices } from '../actions'
 
@@ -41,6 +42,8 @@ class NoteManagerPage extends Component {
                 <div style={{ backgroundColor: 'burlywood', padding: 10, paddingLeft: 250 }}>
                     <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
                 </div>
+
+                <div style={{clear:'both'}}></div>
             </div>
         )
     }
@@ -64,5 +67,6 @@ function mapStateToProps(state, props) {
 
 export default connect(mapStateToProps, {
     loadDirectories,
-    loadNotices
+    loadNotices,
+    push
 })(NoteManagerPage)

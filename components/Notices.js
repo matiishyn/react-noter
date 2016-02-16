@@ -14,17 +14,20 @@ export default class Notices extends Component {
     }
 
     renderNotices(notices) {
+        if (!notices.length) {
+            return `Nothing's found`;
+        }
         return notices.map(this.renderNotice);
     }
 
     render() {
-        let {notices, directoryId} = this.props
+        let {notices, directoryId} = this.props;
         let filteredNotices = notices.filter(n => +n.directoryId === +directoryId);
 
         return (
-            <nav>
+            <div>
                 {this.renderNotices(filteredNotices)}
-            </nav>
+            </div>
         )
     }
 }
