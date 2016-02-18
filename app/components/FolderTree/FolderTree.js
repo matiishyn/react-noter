@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+import styles from './FolderTree.scss';
 
 export default class FolderTree extends Component {
     constructor(props) {
@@ -8,8 +9,9 @@ export default class FolderTree extends Component {
 
     renderFolder(directory) {
         return (
-            <li key={directory.id}>
+            <li className={styles.link} key={directory.id}>
                 <Link
+                    styleName='link'
                     activeClassName="active-directory"
                     to={`/directory/${directory.id}`}
                 >

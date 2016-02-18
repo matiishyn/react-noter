@@ -1,49 +1,44 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './app/index'
-  ],
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
-  },
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loaders: [ 'babel' ],
-        exclude: /node_modules/,
-        include: __dirname
-      }
-    ]
-  }
-}
-
-
-// When inside Redux repo, prefer src to compiled version.
-// You can safely delete these lines in your project.
-var reduxSrc = path.join(__dirname, '..', '..', 'src')
-var reduxNodeModules = path.join(__dirname, '..', '..', 'node_modules')
-var fs = require('fs')
-if (fs.existsSync(reduxSrc) && fs.existsSync(reduxNodeModules)) {
-  // Resolve Redux to source
-  module.exports.resolve = { alias: { 'redux': reduxSrc } }
-  // Our root .babelrc needs this flag for CommonJS output
-  process.env.BABEL_ENV = 'commonjs'
-  // Compile Redux from source
-  module.exports.module.loaders.push({
-    test: /\.js$/,
-    loaders: [ 'babel' ],
-    include: reduxSrc
-  })
+    devtool: 'source-map',
+    entry: [
+        'webpack-hot-middleware/client',
+        './app/index'
+    ],
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/static/'
+    },
+    plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    ],
+    module: {
+        loaders: [
+            // es6, JSX
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/,
+                include: __dirname,
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015', 'react', 'stage-0']
+                }
+            },
+            // SASS as CSS modules
+            {
+                test: /\.scss$/,
+                loaders: [
+                    "style",
+                    "css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
+                    "sass"
+                ]
+            }
+        ]
+    }
 }

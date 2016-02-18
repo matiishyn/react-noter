@@ -6,7 +6,7 @@ import { loadDirectories, loadNotices } from '../actions'
 
 // components
 import Menu from '../components/Menu'
-import FolderTree from '../components/FolderTree'
+import FolderTree from '../components/FolderTree/FolderTree'
 import Notices from '../components/Notices'
 
 
