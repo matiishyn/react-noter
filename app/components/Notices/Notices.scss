@@ -1,0 +1,18 @@
+.notices {
+  display: flex;
+  flex-wrap: wrap;
+
+  .notice {
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+
+    i {
+      font-size: 30px;
+    }
+
+    div {
+      font-weight: bold;
+    }
+  }
+}

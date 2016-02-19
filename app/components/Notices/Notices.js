@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router';
+import styles from './Notices.scss'
 
 export default class Notices extends Component {
     constructor(props) {
@@ -7,9 +9,10 @@ export default class Notices extends Component {
 
     renderNotice(notice) {
         return (
-            <div key={notice.id} style={{border: "1px solid black"}}>
-                <strong>{notice.title}</strong>
-            </div>
+            <Link key={notice.id} className={styles.notice}>
+                <i className="fa fa-envelope-o"></i>
+                <div>{notice.title}</div>
+            </Link>
         )
     }
 
@@ -25,7 +28,7 @@ export default class Notices extends Component {
         let filteredNotices = notices.filter(n => +n.directoryId === +directoryId);
 
         return (
-            <div>
+            <div className={styles.notices}>
                 {this.renderNotices(filteredNotices)}
             </div>
         )

@@ -8,7 +8,7 @@ import styles from './NoteManagerPage.scss'
 // components
 import Menu from '../../components/Menu/Menu'
 import FolderTree from '../../components/FolderTree/FolderTree'
-import Notices from '../../components/Notices'
+import Notices from '../../components/Notices/Notices'
 
 
 function loadData(props) {
@@ -29,23 +29,30 @@ class NoteManagerPage extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="">
 
-                <h1>Note Manager</h1>
+                <div className="container">
+                    <h1>Note Manager</h1>
+                </div>
+
                 <hr/>
-                <div  className={styles.flexbox}>
-                    <div>
-                        <Menu/>
-                    </div>
 
-                    <div className="col-md-3">
-                        <FolderTree directories={this.props.directories}/>
-                    </div>
+                <div className="container">
+                    <div  className={styles.flexbox}>
+                        <div>
+                            <Menu/>
+                        </div>
 
-                    <div className="col-md-9">
-                        <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
+                        <div className="col-md-3">
+                            <FolderTree directories={this.props.directories}/>
+                        </div>
+
+                        <div className="col-md-9">
+                            <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
+                        </div>
                     </div>
                 </div>
+
             </div>
         )
     }
