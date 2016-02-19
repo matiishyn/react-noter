@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import Explore from '../components/Explore'
-import { resetErrorMessage } from '../actions'
+import Explore from '../../components/Explore'
+import { resetErrorMessage } from '../../actions'
 
+import styles from './App.scss'
 
 class App extends Component {
     constructor(props) {
@@ -12,8 +13,8 @@ class App extends Component {
         // if no directoryId
         // todo fix it
         /*if(!props.directoryId) {
-            props.push('/directory/1');
-        }*/
+         props.push('/directory/1');
+         }*/
     }
 
     renderErrorMessage() {
@@ -34,17 +35,24 @@ class App extends Component {
         )
     }
 
+    /*
+     <div className="hidden">
+     <Explore value={inputValue}/>
+     <hr />
+     {this.renderErrorMessage()}
+     </div>
+     */
     render() {
         const { children, inputValue } = this.props
         return (
-            <div>
-                <div className="hidden">
-                    <Explore value={inputValue}/>
-                    <hr />
-                    {this.renderErrorMessage()}
+            <div className={styles.app}>
+                <div className="container">
+                    <h1>Note Manager</h1>
                 </div>
 
+                <hr/>
                 {children}
+                <hr/>
             </div>
         )
     }

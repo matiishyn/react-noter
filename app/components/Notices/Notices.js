@@ -9,7 +9,7 @@ export default class Notices extends Component {
 
     renderNotice(notice) {
         return (
-            <Link key={notice.id} className={styles.notice}>
+            <Link to={`/note/${notice.id}`} key={notice.id} className={styles.notice}>
                 <i className="fa fa-envelope-o"></i>
                 <div>{notice.title}</div>
             </Link>

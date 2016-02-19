@@ -1,10 +1,19 @@
 // some common styles are here
+html, body {
+  height: 100%;
+}
+
 body {
   a {
     color: inherit;
   }
 
   h1 {
-    //margin-bottom: 30px;
+    margin-top: 50px;
+  }
+
+  .sideBorders {
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
   }
 }

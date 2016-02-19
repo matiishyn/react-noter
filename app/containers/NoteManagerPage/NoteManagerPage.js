@@ -23,38 +23,27 @@ class NoteManagerPage extends Component {
     }
 
     componentWillMount() {
+        // todo Load data inside App
         loadData(this.props)
     }
 
 
     render() {
         return (
-            <div className="">
+            <div className="container sideBorders">
+                <div className={styles.flexbox}>
+                    <div>
+                        <Menu/>
+                    </div>
 
-                <div className="container">
-                    <h1>Note Manager</h1>
-                </div>
+                    <div className="col-md-3">
+                        <FolderTree directories={this.props.directories}/>
+                    </div>
 
-                <hr/>
-
-                <div className="container">
-                    <div  className={styles.flexbox}>
-                        <div>
-                            <Menu/>
-                        </div>
-
-                        <div className="col-md-3">
-                            <FolderTree directories={this.props.directories}/>
-                        </div>
-
-                        <div className="col-md-9">
-                            <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
-                        </div>
+                    <div className="col-md-9">
+                        <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
                     </div>
                 </div>
-
-                <hr/>
-
             </div>
         )
     }
