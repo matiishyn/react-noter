@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute, Redirect } from 'react-router'
 import App from './containers/App/App'
-import NoteManagerPage from './containers/NoteManagerPage/NoteManagerPage'
+import NoteManagerPage from './containers/NoteManagerPage'
 import NoticePage from './containers/NoticePage/NoticePage'
 
 export default (

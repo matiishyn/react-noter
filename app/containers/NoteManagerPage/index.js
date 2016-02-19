@@ -1,0 +1,2 @@
+import NoteManagerPageContainer from './NoteManagerPageContainer'
+export default NoteManagerPageContainer

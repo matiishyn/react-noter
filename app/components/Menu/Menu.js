@@ -24,7 +24,7 @@ export default class Menu extends Component {
                     </li>
                     <li>
                         <a href="#">
-                            <i className="fa fa-trash"></i>
+                            <i className="fa fa-trash-o"></i>
                             <div>Remove</div>
                         </a>
                     </li>

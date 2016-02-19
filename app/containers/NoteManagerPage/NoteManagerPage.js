@@ -1,11 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 
-import { loadDirectories, loadNotices } from '../../actions'
 import styles from './NoteManagerPage.scss'
 
-// components
+// importing dump components
 import Menu from '../../components/Menu/Menu'
 import FolderTree from '../../components/FolderTree/FolderTree'
 import Notices from '../../components/Notices/Notices'
@@ -58,18 +55,4 @@ NoteManagerPage.propTypes = {
     loadNotices: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state, props) {
-    let { directoryId} = props.params; // URL params
-    let { directories, notices } = state;
-    return {
-        directories,
-        notices,
-        directoryId
-    }
-}
-
-export default connect(mapStateToProps, {
-    loadDirectories,
-    loadNotices,
-    push
-})(NoteManagerPage)
+export default NoteManagerPage
