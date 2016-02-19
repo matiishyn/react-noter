@@ -28,18 +28,19 @@ class NoteManagerPage extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: 'beige', padding: 10}}>
+            <div style={{ backgroundColor: 'beige'}} className="container">
+
                 <h2>Note Manager</h2>
 
-                <div style={{ backgroundColor: 'aquamarine', padding: 10 }}>
+                <div style={{ backgroundColor: 'aquamarine' }}>
                     <Menu/>
                 </div>
 
-                <div style={{ backgroundColor: 'darkseagreen', padding: 10, width: 200, float: 'left'}}>
+                <div style={{ backgroundColor: 'darkseagreen'}} className="col-md-3">
                     <FolderTree directories={this.props.directories}/>
                 </div>
 
-                <div style={{ backgroundColor: 'burlywood', padding: 10, paddingLeft: 250 }}>
+                <div style={{ backgroundColor: 'burlywood'}} className="col-md-9">
                     <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
                 </div>
 

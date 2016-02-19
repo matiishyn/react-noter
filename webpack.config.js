@@ -5,6 +5,7 @@ module.exports = {
     devtool: 'source-map',
     entry: [
         'webpack-hot-middleware/client',
+        'bootstrap-loader',
         './app/index'
     ],
     output: {
@@ -38,7 +39,16 @@ module.exports = {
                     "css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
                     "sass"
                 ]
-            }
+            },
+            // fonts
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: 'url?limit=10000'
+            },
+
+            // Bootstrap 3
+            {test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery'},
+            {test: /bootstrap-sass\\assets\\javascripts\\/, loader: 'imports?jQuery=jquery'}
         ]
     }
 }
