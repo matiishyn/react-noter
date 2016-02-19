@@ -47,8 +47,11 @@ module.exports = {
             },
 
             // Bootstrap 3
-            {test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery'},
-            {test: /bootstrap-sass\\assets\\javascripts\\/, loader: 'imports?jQuery=jquery'}
+            {test: /bootstrap-sass[\\\/]assets[\\\/]javascripts[\\\/]/, loader: 'imports?jQuery=jquery'}
+            /*{
+                test: path.resolve(__dirname, "node_modules", "boostrap-sass", "assets", "javascript"),
+                loader: 'imports?jQuery=jquery'
+            }*/
         ]
     }
 }
