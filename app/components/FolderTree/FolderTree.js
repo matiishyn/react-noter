@@ -9,13 +9,13 @@ export default class FolderTree extends Component {
 
     renderFolder(directory) {
         return (
-            <li className={styles.link} key={directory.id}>
+            <li key={directory.id}>
                 <Link
-                    styleName='link'
-                    activeClassName="active-directory"
+                    activeClassName={styles.activeDirectory}
                     to={`/directory/${directory.id}`}
                 >
-                    {directory.name}
+                    <i className="fa fa-folder"></i>
+                    <span>{directory.name}</span>
                 </Link>
             </li>
         )
@@ -30,9 +30,11 @@ export default class FolderTree extends Component {
         let {directories} = this.props
 
         return (
-            <nav>
-                {this.renderFolderStructure(directories)}
-            </nav>
+            <div className={styles.folderTree}>
+                <ul className="list-unstyled">
+                    {this.renderFolderStructure(directories)}
+                </ul>
+            </div>
         )
     }
 }

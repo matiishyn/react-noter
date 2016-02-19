@@ -53,6 +53,8 @@ class NoteManagerPage extends Component {
                     </div>
                 </div>
 
+                <hr/>
+
             </div>
         )
     }

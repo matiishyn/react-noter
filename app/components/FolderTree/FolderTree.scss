@@ -1,3 +1,35 @@
-.link {
-    color: yellowgreen;
+.folderTree {
+  border: 1px solid #e3e3e3;
+  padding: 15px 0;
+  //font-weight: bold;
+
+  li {
+
+    a {
+      padding: 5px 15px;
+      display: block;
+
+      &:hover {
+        text-decoration: none;
+        background-color: antiquewhite;
+      }
+      &:focus {
+        text-decoration: none;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .activeDirectory {
+    background-color: beige;
+
+    i {
+      &:before {
+        content: "\f07c";
+      }
+    }
+  }
 }
