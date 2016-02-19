@@ -3,14 +3,15 @@ import { Link } from 'react-router';
 import styles from './Notices.scss'
 
 export default class Notices extends Component {
-    constructor(props) {
-        super(props)
+    componentWillReceiveProps(props) {
+        props.setActiveDirectory(+props.directoryId)
+
     }
 
     renderNotice(notice) {
         return (
             <Link to={`/note/${notice.id}/${notice.directoryId}`} key={notice.id} className={styles.notice}>
-                <i className="fa fa-envelope-o"></i>
+                <i className="fa fa-envelope-o"/>
                 <div>{notice.title}</div>
             </Link>
         )
@@ -20,27 +21,23 @@ export default class Notices extends Component {
         return notices.map(this.renderNotice);
     }
 
-    componentWillReceiveProps() {
-        
-    }
-
-    renderAddNewItem() {
+    renderAddNewItem(activeDirectoryId) {
         return (
-            <Link to={`/note/`} className={styles.notice}>
-                <i className="fa fa-plus-circle"></i>
+            <Link to={`/note/${activeDirectoryId}`} className={styles.notice}>
+                <i className="fa fa-plus-circle"/>
                 <div>Add new</div>
             </Link>
         )
     }
 
     render() {
-        let {notices, directoryId} = this.props;
-        let filteredNotices = notices.filter(n => +n.directoryId === +directoryId);
+        let props = this.props;
+        let filteredNotices = props.notices.filter(n => +n.directoryId === +props.directoryId);
 
         return (
             <div className={styles.notices}>
                 {this.renderNotices(filteredNotices)}
-                {this.renderAddNewItem()}
+                {this.renderAddNewItem(props.activeDirectoryId)}
             </div>
         )
     }
@@ -48,5 +45,7 @@ export default class Notices extends Component {
 
 Notices.propTypes = {
     notices: PropTypes.array,
-    directoryId: PropTypes.string.isRequired
+    activeDirectoryId: PropTypes.number.isRequired,
+    directoryId: PropTypes.string.isRequired,
+    setActiveDirectory: PropTypes.func.isRequired
 }

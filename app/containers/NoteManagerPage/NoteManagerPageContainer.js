@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { push } from 'react-router-redux'
 
-import { setActiveDirectory } from '../../actions';
-import { loadDirectories, loadNotices } from '../../actions'
+import { loadDirectories, loadNotices, setActiveDirectory } from '../../actions'
 
 function mapStateToProps(state, props) {
     let { directoryId} = props.params; // URL params
-    let { directories, notices } = state;
+    let { directories, notices, activeDirectoryId } = state;
     return {
         directories,
         notices,
-        directoryId
+        directoryId,
+        activeDirectoryId
     }
 }
 
@@ -23,6 +23,7 @@ function mapDispatchToProps(dispatch) {
         ...bindActionCreators({
             loadDirectories,
             loadNotices,
+            setActiveDirectory,
             push
         }, dispatch)
     }

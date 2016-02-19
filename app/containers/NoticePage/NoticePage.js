@@ -7,7 +7,7 @@ import styles from './NoticePage.scss'
 
 
 
-class NotePage extends Component {
+class NoticePage extends Component {
     constructor(props) {
         super(props)
     }
@@ -55,8 +55,8 @@ class NotePage extends Component {
     }
 }
 
-NotePage.propTypes = {
-    noticeId: PropTypes.string.isRequired,
+NoticePage.propTypes = {
+    noticeId: PropTypes.string,
     directoryId: PropTypes.string.isRequired,
     loadDirectories: PropTypes.func.isRequired,
     loadNotices: PropTypes.func.isRequired
@@ -76,4 +76,4 @@ export default connect(mapStateToProps, {
     loadDirectories,
     loadNotices,
     push
-})(NotePage)
+})(NoticePage)

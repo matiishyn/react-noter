@@ -26,9 +26,8 @@ function directories(state = [], action) {
  * Keep current selected directory's ID in store to use it later for creating/editing notices
  */
 function activeDirectoryId(state = 1, action) {
-    if (action.response && action.type === ActionTypes.SET_ACTIVE_DIRECTORY) {
-        debugger;
-        return action.response;
+    if (action.activeDirectoryId && action.type === ActionTypes.SET_ACTIVE_DIRECTORY) {
+        return action.activeDirectoryId;
     }
 
     return state

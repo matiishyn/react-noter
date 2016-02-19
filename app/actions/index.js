@@ -4,7 +4,7 @@ export const SET_ACTIVE_DIRECTORY = 'SET_ACTIVE_DIRECTORY'
 
 export function setActiveDirectory(activeDirectoryId) {
     return {
-        types: SET_ACTIVE_DIRECTORY,
+        type: SET_ACTIVE_DIRECTORY,
         activeDirectoryId
     };
 }
