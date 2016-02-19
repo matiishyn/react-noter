@@ -2,12 +2,13 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import { loadDirectories, loadNotices } from '../actions'
+import { loadDirectories, loadNotices } from '../../actions'
+import styles from './NoteManagerPage.scss'
 
 // components
-import Menu from '../components/Menu'
-import FolderTree from '../components/FolderTree/FolderTree'
-import Notices from '../components/Notices'
+import Menu from '../../components/Menu/Menu'
+import FolderTree from '../../components/FolderTree/FolderTree'
+import Notices from '../../components/Notices'
 
 
 function loadData(props) {
@@ -28,23 +29,23 @@ class NoteManagerPage extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: 'beige'}} className="container">
+            <div className="container">
 
-                <h2>Note Manager</h2>
+                <h1>Note Manager</h1>
+                <hr/>
+                <div  className={styles.flexbox}>
+                    <div>
+                        <Menu/>
+                    </div>
 
-                <div style={{ backgroundColor: 'aquamarine' }}>
-                    <Menu/>
+                    <div className="col-md-3">
+                        <FolderTree directories={this.props.directories}/>
+                    </div>
+
+                    <div className="col-md-9">
+                        <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
+                    </div>
                 </div>
-
-                <div style={{ backgroundColor: 'darkseagreen'}} className="col-md-3">
-                    <FolderTree directories={this.props.directories}/>
-                </div>
-
-                <div style={{ backgroundColor: 'burlywood'}} className="col-md-9">
-                    <Notices notices={this.props.notices} directoryId={this.props.directoryId}/>
-                </div>
-
-                <div style={{clear:'both'}}></div>
             </div>
         )
     }
