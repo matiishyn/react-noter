@@ -22,6 +22,18 @@ function directories(state = [], action) {
     return state
 }
 
+/**
+ * Keep current selected directory's ID in store to use it later for creating/editing notices
+ */
+function activeDirectoryId(state = 1, action) {
+    if (action.response && action.type === ActionTypes.SET_ACTIVE_DIRECTORY) {
+        debugger;
+        return action.response;
+    }
+
+    return state
+}
+
 function notices(state = [], action) {
     if (action.response && action.type === ActionTypes.NOTICES_SUCCESS) {
         return action.response;
@@ -48,6 +60,7 @@ const rootReducer = combineReducers({
     directories,
     notices,
     errorMessage,
+    activeDirectoryId,
     routing: routeReducer
 })
 

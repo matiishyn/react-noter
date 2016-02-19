@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
+import { Link } from 'react-router';
 import Explore from '../../components/Explore'
 import { resetErrorMessage } from '../../actions'
 
@@ -47,7 +48,7 @@ class App extends Component {
         return (
             <div className={styles.app}>
                 <div className="container">
-                    <h1>Note Manager</h1>
+                    <h1><Link to="/directory/1"></Link>Note Manager</h1>
                 </div>
 
                 <hr/>

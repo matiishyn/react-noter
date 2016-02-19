@@ -6,11 +6,6 @@ import { loadDirectories, loadNotices } from '../../actions'
 import styles from './NoticePage.scss'
 
 
-function loadData(props) {
-    props.loadDirectories();
-    props.loadNotices();
-}
-
 
 class NotePage extends Component {
     constructor(props) {
@@ -24,9 +19,7 @@ class NotePage extends Component {
                 <div className="row">
                     <div className="col-md-offset-3 col-md-6">
 
-
-
-
+                        <h2>Create new note</h2>
 
                         <form className="form-horizontal">
                             <div className="form-group">
@@ -36,7 +29,8 @@ class NotePage extends Component {
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="noticeDescription" className="col-sm-2 control-label">Description</label>
+                                <label htmlFor="noticeDescription"
+                                       className="col-sm-2 control-label">Description</label>
                                 <div className="col-sm-10">
                                     <textarea name="" className="form-control"
                                               id="noticeDescription"
@@ -54,9 +48,6 @@ class NotePage extends Component {
                         </form>
 
 
-
-
-
                     </div>
                 </div>
             </div>
@@ -66,17 +57,18 @@ class NotePage extends Component {
 
 NotePage.propTypes = {
     noticeId: PropTypes.string.isRequired,
+    directoryId: PropTypes.string.isRequired,
     loadDirectories: PropTypes.func.isRequired,
     loadNotices: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, props) {
-    let { noticeId} = props.params; // URL params
+    let { noticeId, directoryId} = props.params; // URL params
     let { directories, notices } = state;
     return {
         directories,
         notices,
-        noticeId
+        noticeId, directoryId
     }
 }
 

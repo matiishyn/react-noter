@@ -9,7 +9,7 @@ export default class Notices extends Component {
 
     renderNotice(notice) {
         return (
-            <Link to={`/note/${notice.id}`} key={notice.id} className={styles.notice}>
+            <Link to={`/note/${notice.id}/${notice.directoryId}`} key={notice.id} className={styles.notice}>
                 <i className="fa fa-envelope-o"></i>
                 <div>{notice.title}</div>
             </Link>
@@ -17,10 +17,20 @@ export default class Notices extends Component {
     }
 
     renderNotices(notices) {
-        if (!notices.length) {
-            return `Nothing's found`;
-        }
         return notices.map(this.renderNotice);
+    }
+
+    componentWillReceiveProps() {
+        
+    }
+
+    renderAddNewItem() {
+        return (
+            <Link to={`/note/`} className={styles.notice}>
+                <i className="fa fa-plus-circle"></i>
+                <div>Add new</div>
+            </Link>
+        )
     }
 
     render() {
@@ -30,6 +40,7 @@ export default class Notices extends Component {
         return (
             <div className={styles.notices}>
                 {this.renderNotices(filteredNotices)}
+                {this.renderAddNewItem()}
             </div>
         )
     }

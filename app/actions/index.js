@@ -1,6 +1,13 @@
 import { CALL_API, Schemas } from '../middleware/api'
 // =====================================================================
-// =====================================================================
+export const SET_ACTIVE_DIRECTORY = 'SET_ACTIVE_DIRECTORY'
+
+export function setActiveDirectory(activeDirectoryId) {
+    return {
+        types: SET_ACTIVE_DIRECTORY,
+        activeDirectoryId
+    };
+}
 // =====================================================================
 export const NOTICES_REQUEST = 'NOTICES_REQUEST'
 export const NOTICES_SUCCESS = 'NOTICES_SUCCESS'
@@ -21,8 +28,6 @@ export function loadNotices() {
     }
 }
 // =====================================================================
-// =====================================================================
-// =====================================================================
 export const DIRECTORIES_REQUEST = 'DIRECTORIES_REQUEST'
 export const DIRECTORIES_SUCCESS = 'DIRECTORIES_SUCCESS'
 export const DIRECTORIES_FAILURE = 'DIRECTORIES_FAILURE'
@@ -41,8 +46,6 @@ export function loadDirectories() {
         return dispatch(fetchDirectories())
     }
 }
-// =====================================================================
-// =====================================================================
 // =====================================================================
 export const USER_REQUEST = 'USER_REQUEST'
 export const USER_SUCCESS = 'USER_SUCCESS'
@@ -73,8 +76,6 @@ export function loadUser(login, requiredFields = []) {
     }
 }
 // =====================================================================
-// =====================================================================
-// =====================================================================
 export const REPO_REQUEST = 'REPO_REQUEST'
 export const REPO_SUCCESS = 'REPO_SUCCESS'
 export const REPO_FAILURE = 'REPO_FAILURE'
@@ -103,10 +104,6 @@ export function loadRepo(fullName, requiredFields = []) {
         return dispatch(fetchRepo(fullName))
     }
 }
-// =====================================================================
-// =====================================================================
-// =====================================================================
-// =====================================================================
 // =====================================================================
 // =====================================================================
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE'
