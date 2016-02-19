@@ -38,10 +38,12 @@ class App extends Component {
         const { children, inputValue } = this.props
         return (
             <div>
+                <div className="hidden">
+                    <Explore value={inputValue}/>
+                    <hr />
+                    {this.renderErrorMessage()}
+                </div>
 
-                <Explore value={inputValue}/>
-                <hr />
-                {this.renderErrorMessage()}
                 {children}
             </div>
         )
