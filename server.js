@@ -3,6 +3,7 @@ var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
 var config = require('./webpack.config')
 var express = require('express')
+var beServer = require('./beServer')  // backend from course
 
 var app = new (require('express'))()
 var port = 3009
@@ -22,6 +23,6 @@ app.listen(port, function(error) {
   if (error) {
     console.error(error)
   } else {
-    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
+    console.info("Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
   }
 })
