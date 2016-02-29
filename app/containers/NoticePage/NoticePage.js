@@ -1,41 +1,20 @@
 import React, { Component, PropTypes } from 'react'
+import NoticeForm from '../../components/NoticeForm/NoticeForm'
 import styles from './NoticePage.scss'
 
 class NoticePage extends Component {
+
     render() {
+        let props = this.props;
+        let {noticeId} = props;
         return (
-            <div className="container sideBorders">
+            <div className="container">
                 <div className="row">
                     <div className="col-md-offset-3 col-md-6">
 
-                        <h2>Create new note</h2>
+                        <h2>{noticeId ? 'Edit Note' : 'Create new note'}</h2>
 
-                        <form className="form-horizontal">
-                            <div className="form-group">
-                                <label htmlFor="noticeTitle" className="col-sm-3 control-label">Title</label>
-                                <div className="col-sm-9">
-                                    <input className="form-control" id="noticeTitle" placeholder="title"/>
-                                </div>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="noticeDescription"
-                                       className="col-sm-3 control-label">Description</label>
-                                <div className="col-sm-9">
-                                    <textarea name="" className="form-control"
-                                              id="noticeDescription"
-                                              cols="30"
-                                              rows="3"
-                                              placeholder="description"
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group">
-                                <div className="col-sm-offset-3 col-sm-9">
-                                    <button type="submit" className="btn btn-default">Sign in</button>
-                                </div>
-                            </div>
-                        </form>
-
+                        <NoticeForm/>
 
                     </div>
                 </div>
