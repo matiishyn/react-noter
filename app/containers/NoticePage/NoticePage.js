@@ -6,11 +6,7 @@ import { loadDirectories, loadNotices } from '../../actions'
 import styles from './NoticePage.scss'
 
 
-
 class NoticePage extends Component {
-    constructor(props) {
-        super(props)
-    }
 
 
     render() {
@@ -23,15 +19,15 @@ class NoticePage extends Component {
 
                         <form className="form-horizontal">
                             <div className="form-group">
-                                <label htmlFor="noticeTitle" className="col-sm-2 control-label">Title</label>
-                                <div className="col-sm-10">
+                                <label htmlFor="noticeTitle" className="col-sm-3 control-label">Title</label>
+                                <div className="col-sm-9">
                                     <input className="form-control" id="noticeTitle" placeholder="title"/>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="noticeDescription"
-                                       className="col-sm-2 control-label">Description</label>
-                                <div className="col-sm-10">
+                                       className="col-sm-3 control-label">Description</label>
+                                <div className="col-sm-9">
                                     <textarea name="" className="form-control"
                                               id="noticeDescription"
                                               cols="30"
@@ -41,7 +37,7 @@ class NoticePage extends Component {
                                 </div>
                             </div>
                             <div className="form-group">
-                                <div className="col-sm-offset-2 col-sm-10">
+                                <div className="col-sm-offset-3 col-sm-9">
                                     <button type="submit" className="btn btn-default">Sign in</button>
                                 </div>
                             </div>
