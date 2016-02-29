@@ -2,10 +2,28 @@ import React, { Component, PropTypes } from 'react'
 import styles from './styles.scss'
 
 export default class NoticeForm extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            title: this.props.notice.title,
+            description: this.props.notice.description
+        }
+    }
+
+    handleChange(event) {
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            title: nextProps.notice.title,
+            description: nextProps.notice.description
+        })
+    }
 
     render() {
-        console.log('NoticeForm',this.props.notice);
-        let notice = this.props.notice;
+        //let notice = this.props.notice;
         return (
             <div>
 
@@ -13,20 +31,25 @@ export default class NoticeForm extends Component {
                     <div className="form-group">
                         <label htmlFor="noticeTitle" className="col-sm-3 control-label">Title</label>
                         <div className="col-sm-9">
-                            <input className="form-control" id="noticeTitle" value={notice.title} placeholder="title"/>
+                            <input
+                                onChange={this.handleChange.bind(this)}
+                                name="title"
+                                className="form-control" id="noticeTitle"
+                                value={this.state.title} placeholder="title"/>
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="noticeDescription"
                                className="col-sm-3 control-label">Description</label>
                         <div className="col-sm-9">
-                                    <textarea name=""
+                                    <textarea name="description"
                                               className="form-control"
-                                              value={notice.description}
+                                              value={this.state.description}
                                               id="noticeDescription"
                                               cols="30"
                                               rows="3"
                                               placeholder="description"
+                                              onChange={this.handleChange.bind(this)}
                                     />
                         </div>
                     </div>
