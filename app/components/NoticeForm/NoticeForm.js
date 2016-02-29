@@ -1,16 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import styles from './styles.scss'
 
-export default class Notices extends Component {
+export default class NoticeForm extends Component {
 
     render() {
+        console.log('NoticeForm',this.props.notice);
+        let notice = this.props.notice;
         return (
             <div>
+
                 <form className="form-horizontal">
                     <div className="form-group">
                         <label htmlFor="noticeTitle" className="col-sm-3 control-label">Title</label>
                         <div className="col-sm-9">
-                            <input className="form-control" id="noticeTitle" placeholder="title"/>
+                            <input className="form-control" id="noticeTitle" value={notice.title} placeholder="title"/>
                         </div>
                     </div>
                     <div className="form-group">
@@ -19,6 +22,7 @@ export default class Notices extends Component {
                         <div className="col-sm-9">
                                     <textarea name=""
                                               className="form-control"
+                                              value={notice.description}
                                               id="noticeDescription"
                                               cols="30"
                                               rows="3"
@@ -38,9 +42,6 @@ export default class Notices extends Component {
     }
 }
 
-Notices.propTypes = {
-    notices: PropTypes.array,
-    activeDirectoryId: PropTypes.number.isRequired,
-    directoryId: PropTypes.string.isRequired,
-    setActiveDirectory: PropTypes.func.isRequired
+NoticeForm.propTypes = {
+    notice: PropTypes.object.isRequired
 }
