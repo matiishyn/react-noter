@@ -9,6 +9,18 @@ class NoticePage extends Component {
         return _.find(this.props.notices,{ id: +noticeId});
     }
 
+    onCancel() {
+        // todo
+        if(history.length > 2){
+            console.log('back');
+            this.props.goBack();
+        } else {
+            console.log('DIR');
+            this.props.push('directory/1');
+        }
+
+    }
+
     render() {
         let props = this.props;
         return (
@@ -20,6 +32,7 @@ class NoticePage extends Component {
 
                         <NoticeForm
                             notice={this.getCurrentNotice(props.noticeId) || {}}
+                            onCancel={this.onCancel.bind(this)}
                         />
 
                     </div>
@@ -32,7 +45,9 @@ class NoticePage extends Component {
 NoticePage.propTypes = {
     noticeId: PropTypes.string,
     notices: PropTypes.array,
-    directoryId: PropTypes.string.isRequired
+    directoryId: PropTypes.string.isRequired,
+    push: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired
 }
 
 export default NoticePage

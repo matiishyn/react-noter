@@ -22,6 +22,11 @@ export default class NoticeForm extends Component {
         })
     }
 
+    onClickCancel(e) {
+        e.preventDefault();
+        this.props.onCancel();
+    }
+
     render() {
         //let notice = this.props.notice;
         return (
@@ -56,7 +61,7 @@ export default class NoticeForm extends Component {
                     <div className="form-group">
                         <div className="col-sm-offset-3 col-sm-9">
                             <button type="submit" className="btn btn-primary">Save</button>
-                            <button className="btn btn-default">Cancel</button>
+                            <button className="btn btn-default" onClick={this.onClickCancel.bind(this)}>Cancel</button>
                         </div>
                     </div>
                 </form>
@@ -66,5 +71,6 @@ export default class NoticeForm extends Component {
 }
 
 NoticeForm.propTypes = {
-    notice: PropTypes.object.isRequired
+    notice: PropTypes.object.isRequired,
+    onCancel: PropTypes.func.isRequired
 }
