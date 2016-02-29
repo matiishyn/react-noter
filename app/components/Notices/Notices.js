@@ -5,7 +5,6 @@ import styles from './Notices.scss'
 export default class Notices extends Component {
     componentWillReceiveProps(props) {
         props.setActiveDirectory(+props.directoryId)
-
     }
 
     renderNotice(notice) {
@@ -45,7 +44,7 @@ export default class Notices extends Component {
 
 Notices.propTypes = {
     notices: PropTypes.array,
-    activeDirectoryId: PropTypes.number.isRequired,
-    directoryId: PropTypes.string.isRequired,
-    setActiveDirectory: PropTypes.func.isRequired
+    activeDirectoryId: PropTypes.number,
+    directoryId: PropTypes.string,
+    setActiveDirectory: PropTypes.func
 }
