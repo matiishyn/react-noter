@@ -1,14 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-
-import { loadDirectories, loadNotices } from '../../actions'
 import styles from './NoticePage.scss'
 
-
 class NoticePage extends Component {
-
-
     render() {
         return (
             <div className="container sideBorders">
@@ -58,18 +51,4 @@ NoticePage.propTypes = {
     loadNotices: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state, props) {
-    let { noticeId, directoryId} = props.params; // URL params
-    let { directories, notices } = state;
-    return {
-        directories,
-        notices,
-        noticeId, directoryId
-    }
-}
-
-export default connect(mapStateToProps, {
-    loadDirectories,
-    loadNotices,
-    push
-})(NoticePage)
+export default NoticePage
