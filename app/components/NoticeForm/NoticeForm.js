@@ -22,7 +22,7 @@ export default class NoticeForm extends Component {
         })
     }
 
-    onClickCancel(e) {
+    cancelHandler(e) {
         e.preventDefault();
         this.props.onCancel();
     }
@@ -61,7 +61,7 @@ export default class NoticeForm extends Component {
                     <div className="form-group">
                         <div className="col-sm-offset-3 col-sm-9">
                             <button type="submit" className="btn btn-primary">Save</button>
-                            <button className="btn btn-default" onClick={this.onClickCancel.bind(this)}>Cancel</button>
+                            <button className="btn btn-default" onClick={this.cancelHandler.bind(this)}>Cancel</button>
                         </div>
                     </div>
                 </form>

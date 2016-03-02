@@ -1,52 +1,5 @@
 import { CALL_API, Schemas } from '../middleware/api'
 // =====================================================================
-export const SET_ACTIVE_DIRECTORY = 'SET_ACTIVE_DIRECTORY'
-
-export function setActiveDirectory(activeDirectoryId) {
-    return {
-        type: SET_ACTIVE_DIRECTORY,
-        activeDirectoryId
-    };
-}
-// =====================================================================
-export const NOTICES_REQUEST = 'NOTICES_REQUEST'
-export const NOTICES_SUCCESS = 'NOTICES_SUCCESS'
-export const NOTICES_FAILURE = 'NOTICES_FAILURE'
-
-function fetchNotices() {
-    return {
-        [CALL_API]: {
-            types: [NOTICES_REQUEST, NOTICES_SUCCESS, NOTICES_FAILURE],
-            endpoint: `notices`
-        }
-    };
-}
-
-export function loadNotices() {
-    return (dispatch, getState) => {
-        return dispatch(fetchNotices())
-    }
-}
-// =====================================================================
-export const DIRECTORIES_REQUEST = 'DIRECTORIES_REQUEST'
-export const DIRECTORIES_SUCCESS = 'DIRECTORIES_SUCCESS'
-export const DIRECTORIES_FAILURE = 'DIRECTORIES_FAILURE'
-
-function fetchDirectories() {
-    return {
-        [CALL_API]: {
-            types: [DIRECTORIES_REQUEST, DIRECTORIES_SUCCESS, DIRECTORIES_FAILURE],
-            endpoint: `directories`
-        }
-    };
-}
-
-export function loadDirectories() {
-    return (dispatch, getState) => {
-        return dispatch(fetchDirectories())
-    }
-}
-// =====================================================================
 export const USER_REQUEST = 'USER_REQUEST'
 export const USER_SUCCESS = 'USER_SUCCESS'
 export const USER_FAILURE = 'USER_FAILURE'
@@ -114,3 +67,6 @@ export function resetErrorMessage() {
         type: RESET_ERROR_MESSAGE
     }
 }
+
+export * from './notices'
+export * from './directories'

@@ -11,14 +11,14 @@ class NoticePage extends Component {
 
     onCancel() {
         // todo
-        if(history.length > 2){
+        /*if(history.length > 2){
             console.log('back');
             this.props.goBack();
         } else {
             console.log('DIR');
             this.props.push('directory/1');
-        }
-
+        }*/
+        this.props.push('directory/1');
     }
 
     render() {
