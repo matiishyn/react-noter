@@ -8,7 +8,8 @@ Run `npm install` to install all dependencies.
 ## Running
 Run `npm start`. This will run two servers
 
-1. on **3001** port - few REST endpoints - e.g.: http://localhost:3001/directories
+1. ~~on **3001** port - few REST endpoints - e.g.: http://localhost:3001/directories~~
+**BE is not here**
 2. on **3009** port - React application
 
 Run this url in your browser
